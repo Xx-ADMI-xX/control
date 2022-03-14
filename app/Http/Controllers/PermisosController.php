@@ -62,7 +62,7 @@ class PermisosController extends Controller
     public function edit($id)
     {
         $permisos=Permisos::find($id);
-        dd($permisos);
+        return view('permisos.edit');
     }
 
     /**

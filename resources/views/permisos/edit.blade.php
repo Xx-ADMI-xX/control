@@ -1,1 +1,1 @@
-edit.blade.php
+<h1>Desde edit de categorias</h1>
