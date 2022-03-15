@@ -10,4 +10,4 @@
 	<br>
 	<button class="btn btn-success"> Guardar </button>
 </form>
-@endsection 
+@endsection

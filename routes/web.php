@@ -26,6 +26,11 @@ Route::get('/usuarios','UsuariosController@index')->name('usuarios');
 Route::get('/permisos','PermisosController@index')->name('permisos');
 
 Route::get('/permisos/create','PermisosController@create')->name('permisos.create');
+
 Route::post('/permisos/store','PermisosController@store')->name('permisos.store');
 
 Route::get('/permisos/edit/{prm_id}','PermisosController@edit')->name('permisos.edit');
+
+Route::post('/permisos/update/{prm_id}','PermisosController@update')->name('permisos.update');
+
+Route::post('/permisos/destroy/{prm_id}','PermisosController@destroy')->name('permisos.destroy');
