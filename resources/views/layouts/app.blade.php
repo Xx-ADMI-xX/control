@@ -27,8 +27,9 @@
 			     @else
 			                <div class="menu" style="background:;color:white;">
 
-			        <a class="btn btn-info text-white" href="{{route('usuarios')}}">usuarios</a>
-			         <a class="btn btn-info text-white" href="{{route('permisos')}}">permisos</a>
+			        <a class="btn btn-info text-white" href="{{route('usuarios')}}">Usuarios</a>
+			         <a class="btn btn-info text-white" href="{{route('permisos')}}">Permisos</a>
+                     <a class="btn btn-info text-white" href="{{route('permisos')}}">Ingresos</a>
 			    </div>
 			    @endguest
     
