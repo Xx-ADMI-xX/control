@@ -28,8 +28,9 @@
 			                <div class="menu" style="background:;color:white;">
 
 			        <a class="btn btn-info text-white" href="{{route('usuarios')}}">Usuarios</a>
-			         <a class="btn btn-info text-white" href="{{route('permisos')}}">Permisos</a>
-                     <a class="btn btn-info text-white" href="{{route('permisos')}}">Ingresos</a>
+			        <a class="btn btn-info text-white" href="{{route('permisos')}}">Permisos</a>
+                    <a class="btn btn-info text-white" href="{{route('ingresos')}}">Ingresos</a>
+                    <a class="btn btn-info text-white" href="{{route('tipoI')}}">Tipo (I)</a>
 			    </div>
 			    @endguest
     
