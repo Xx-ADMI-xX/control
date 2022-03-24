@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<h2 class="bg-dark text-white">Lista de los tipoI</h2>
-<!-- <a href="{{route('tipoI.create')}}" class="btn btn-primary"> Nuevo </a> -->
-	<!-- <p></p>
+<h2 class="bg-dark text-white">Tipo de ingresos</h2>
+<a href="{{route('tipoI.create')}}" class="btn btn-primary"> Nuevo </a>
+	<p></p>
+	
 	<table class="table">
 		<th> # </th>
-		<th> Detalle </th>
-		<th> Acciones </th>
+		<th> Nombre </th>
 	@foreach($tipoI as $tpI)
 	<tr>
 		<td>{{$loop->iteration}}</td>
@@ -33,6 +33,6 @@
 		</td>
 	</tr>
 	@endforeach
-	</table> -->
+	</table>
 
 @endsection

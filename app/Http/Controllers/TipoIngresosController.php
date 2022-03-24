@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\TipoIngresos;
 use Illuminate\Http\Request;
 
-class TipoIngresos extends Controller
+class TipoIngresosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,10 @@ class TipoIngresos extends Controller
      */
     public function index()
     {
-        //
+        $tipoingresos=TipoIngresos::all();        
+        return view('tipoI.index')
+        ->with('tipoI',$tipoingresos)
+        ;
     }
 
     /**
@@ -23,7 +26,7 @@ class TipoIngresos extends Controller
      */
     public function create()
     {
-        //
+        return view('tipoI.create');
     }
 
     /**
@@ -34,7 +37,9 @@ class TipoIngresos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        TipoIngresos::create($data);
+        return redirect(route('tipoI'));
     }
 
     /**
@@ -45,7 +50,7 @@ class TipoIngresos extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -56,7 +61,9 @@ class TipoIngresos extends Controller
      */
     public function edit($id)
     {
-        //
+        $tipoingresos=TipoIngresos::find($id);
+        return view('tipoI.edit')
+        ->with('tipoI',$tipoingresos);
     }
 
     /**
@@ -68,7 +75,9 @@ class TipoIngresos extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $TpI=TipoIngresos::find($id);
+        $TpI->update($request->all());
+        return redirect(route('tipoI'));
     }
 
     /**
@@ -79,6 +88,7 @@ class TipoIngresos extends Controller
      */
     public function destroy($id)
     {
-        //
+        TipoIngresos::destroy($id);
+        return redirect(route('tipoI'));
     }
 }

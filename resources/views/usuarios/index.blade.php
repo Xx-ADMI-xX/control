@@ -7,7 +7,6 @@
 		<th> Nombre </th>
 		<th> Apellido </th>
 		<th> CI </th>
-		<th> Telefono </th>
 		<th> Correo </th>
 	@foreach($users as $u)
 	<tr>
@@ -15,7 +14,6 @@
 		<td>{{$u->usu_Nombre}}</td>
 		<td>{{$u->usu_Apellido}}</td>
 		<td>{{$u->usu_CI}}</td>
-		<td>{{$u->usu_Telefono}}</td>
 		<td>{{$u->usu_Correo}}</td>
 	</tr>
 	@endforeach

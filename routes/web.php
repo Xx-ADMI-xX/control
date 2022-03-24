@@ -34,3 +34,8 @@ Route::get('/ingresos','IngresosController@index')->name('ingresos');
 Route::get('/ingresos/create','IngresosController@create')->name('ingresos.create');
 
 Route::get('/tipoI','TipoIngresosController@index')->name('tipoI');
+Route::get('/tipoI/create','TipoIngresosController@create')->name('tipoI.create');
+Route::get('/tipoI/edit/{tpI_id}','TipoIngresosController@edit')->name('tipoI.edit');
+Route::post('/tipoI/store','TipoIngresosController@store')->name('tipoI.store');
+Route::post('/tipoI/update/{tpI_id}','TipoIngresosController@update')->name('tipoI.update');
+Route::post('/tipoI/destroy/{tpI_id}','TipoIngresosController@destroy')->name('tipoI.destroy');
