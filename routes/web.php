@@ -32,6 +32,11 @@ Route::post('/permisos/destroy/{prm_id}','PermisosController@destroy')->name('pe
 
 Route::get('/ingresos','IngresosController@index')->name('ingresos');
 Route::get('/ingresos/create','IngresosController@create')->name('ingresos.create');
+Route::post('/ingresos/store','IngresosController@store')->name('ingresos.store');
+Route::get('/ingresos/edit/{ing_id}','IngresosController@edit')->name('ingresos.edit');
+Route::post('/ingresos/update/{ing_id}','IngresosController@update')->name('ingresos.update');
+Route::post('/ingresos/destroy/{ing_id}','IngresosController@destroy')->name('ingresos.destroy');
+Route::post('/ingresos/search','IngresosController@index')->name('ingresos.search');
 
 Route::get('/tipoI','TipoIngresosController@index')->name('tipoI');
 Route::get('/tipoI/create','TipoIngresosController@create')->name('tipoI.create');

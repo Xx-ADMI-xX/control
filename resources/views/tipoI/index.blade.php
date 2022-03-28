@@ -7,6 +7,7 @@
 	<table class="table">
 		<th> # </th>
 		<th> Nombre </th>
+		<th> Acciones </th>
 	@foreach($tipoI as $tpI)
 	<tr>
 		<td>{{$loop->iteration}}</td>
@@ -19,7 +20,7 @@
 				</svg>
 			</a>
  			
-			<form action="{{route('tipoI.destroy',$tpI->tpI_id)}}" method="POST" onsubmit="return confirm('¿Esta seguro de eliminar este permiso?')" class="pull-left">
+			<form action="{{route('tipoI.destroy',$tpI->tpI_id)}}" method="POST" onsubmit="return confirm('¿Esta seguro de eliminar este tipo de ingreso?')" class="pull-left">
 			@csrf
 			<button class="btn btn-danger btn-sm ">
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">

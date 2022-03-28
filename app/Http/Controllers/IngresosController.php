@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\TipoIngresos;
+use App\Ingresos;
+use Auth;
+use DB;
 
 class IngresosController extends Controller
 {
@@ -12,10 +15,28 @@ class IngresosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return view('ingresos.index');
+        $data=$request->all();
+        $desde=date('Y-m-d');
+        $hasta=date('Y-m-d');
+
+        if(isset($data['desde'])){
+
+        $desde=$data['desde'];
+        $hasta=$data['hasta'];
+
+        }
+        // dd($data);
+        // $ingresos=Ingresos::all();
+        // return view('ingresos.index')
+        // ->with('ingresos',$ingresos);
+        $ingresos=DB::select("
+            SELECT * FROM ingresos i 
+            JOIN users u ON i.usu_id=u.usu_id
+            JOIN tipoingresos tpI ON i.tpI_id=tpI.tpI_id
+            WHERE i.ing_fecha BETWEEN '$desde' AND '$hasta'
+            ");
     }
 
     /**
@@ -38,7 +59,10 @@ class IngresosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data=$request->all();
+        $data['usu_id']=Auth::User()->usu_id;
+        Ingresos::create($data);
+        return redirect(route('ingresos'));
     }
 
     /**
@@ -60,7 +84,9 @@ class IngresosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ingresos=Ingresos::find($id);
+        return view('ingresos.edit')
+        ->with('ingresos',$ingresos);
     }
 
     /**
@@ -72,7 +98,9 @@ class IngresosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $Ing=Ingresos::find($id);
+        $Ing->update($request->all());
+        return redirect(route('ingresos'));
     }
 
     /**
@@ -83,6 +111,8 @@ class IngresosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Ingresos::destroy($id);
+        return redirect(route('ingresos'));
     }
+
 }
