@@ -19,6 +19,7 @@ class IngresosTable extends Migration
             $table->string('ing_detalle');
             $table->date('ing_fecha');
             $table->foreignId('tpI_id')->references('tpI_id')->on('tipoIngresos');
+            $table->foreignId('usu_id')->references('usu_id')->on('users');
         });
     }
 

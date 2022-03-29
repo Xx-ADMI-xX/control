@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
+<script src="{{asset('js/ingresos.js')}}"></script>
+
 <h1 class="bg-dark text-white">Formulario de registro - Ingreso</h1>
-<form action="{{route('ingresos.store')}}" method="POST">
+<form action="{{route('ingresos.store')}}" method="POST" onsubmit="return validar()">
 	@csrf
 	<div class="container">
 		<div class="row">

@@ -10,6 +10,6 @@ class Ingresos extends Model
     protected $table='ingresos';
     protected $primaryKey='ing_id';
     protected $fillable = [
-        'ing_cantidad','ing_detalle','ing_fecha','tpI_id'
+        'ing_cantidad','ing_detalle','ing_fecha', 'usu_id','tpI_id'
     ];
 }

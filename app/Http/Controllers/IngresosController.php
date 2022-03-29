@@ -17,26 +17,27 @@ class IngresosController extends Controller
      */
     public function index(Request $request)
     {
+//dd('ok');
         $data=$request->all();
         $desde=date('Y-m-d');
         $hasta=date('Y-m-d');
 
         if(isset($data['desde'])){
-
         $desde=$data['desde'];
         $hasta=$data['hasta'];
-
         }
-        // dd($data);
-        // $ingresos=Ingresos::all();
-        // return view('ingresos.index')
-        // ->with('ingresos',$ingresos);
+        
         $ingresos=DB::select("
             SELECT * FROM ingresos i 
             JOIN users u ON i.usu_id=u.usu_id
             JOIN tipoingresos tpI ON i.tpI_id=tpI.tpI_id
             WHERE i.ing_fecha BETWEEN '$desde' AND '$hasta'
             ");
+        
+        return view('ingresos.index')
+        ->with('ingresos',$ingresos)
+        ->with('desde',$desde)
+        ->with('hasta',$hasta);
     }
 
     /**

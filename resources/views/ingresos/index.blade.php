@@ -6,9 +6,13 @@
 
 <form action="{{route('ingresos.search')}}" method="POST">
 	@csrf
-	Desde:<input type="date" name="desde">
-	Hasta:<input type="date" name="hasta">
-	<button class="btn btn-success">buscar</button>
+	Desde:<input type="date" name="desde" value="{{$desde}}">
+	Hasta:<input type="date" name="hasta" value="{{$hasta}}">
+	<button class="btn btn-success">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+		  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+		</svg>
+	</button>
 </form>
 <p></p>
 	
@@ -20,12 +24,20 @@
 		<th> Usuario </th>
 		<th> Detalle </th>
 		<th> Acciones </th>
+		<?php
+			$t_ing=0; 
+		?>
 
 	@foreach($ingresos as $ing)
+	<?php 
+	if ($ing->ing_detalle) {
+		$t_ing+=$ing->ing_cantidad;
+	}
+	?>
 	<tr>
 		<td>{{$loop->iteration}}</td>
-		<td>{{number_format($ing->ing_cantidad,2)}}</td>
-		<td>{{$ing->tpI_id}}</td>
+		<td>${{number_format($ing->ing_cantidad,2)}}</td>
+		<td>{{$ing->tpI_Nombre}}</td>
 		<td>{{$ing->ing_fecha}}</td>
 		<td>{{$ing->usu_Nombre}}</td>
 		<td>{{$ing->ing_detalle}}</td>
@@ -51,5 +63,9 @@
 		</td>
 	</tr>
 	@endforeach
+	<tr>
+		<th colspan="2">Total:</th>
+		<th>Ingresos:{{$t_ing}}</th>
+	</tr>
 
 @endsection
