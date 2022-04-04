@@ -15,8 +15,8 @@
                     @endif
 
                     {{ __('Has iniciado sesion!') }}
-                    <div align="center">
-                        <img src="https://i.pinimg.com/originals/b9/7d/c2/b97dc288d71e7938c1ce8b7faacdc9ac.gif" height="450">
+                    <div>
+                        <img src="https://i.pinimg.com/originals/b9/7d/c2/b97dc288d71e7938c1ce8b7faacdc9ac.gif" height="460" width="500">
                     </div>
                 </div>
             </div>

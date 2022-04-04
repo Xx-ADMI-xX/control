@@ -7,6 +7,7 @@ use App\TipoIngresos;
 use App\Ingresos;
 use Auth;
 use DB;
+use PDF;
 
 class IngresosController extends Controller
 {
@@ -17,27 +18,45 @@ class IngresosController extends Controller
      */
     public function index(Request $request)
     {
-//dd('ok');
+
+        // $data=[
+        //     'fecha'=>date('Y-m-d'),
+        //     'usuarios'=>Auth::user()->usu_Nombre
+        // ];
+        // $pdf=PDF::loadview('ingresos.reporte',$data);
+        // // $pdf=setPaper('a5,landscapes')
+        // return $pdf->stream('invoice.pdf');
+
         $data=$request->all();
         $desde=date('Y-m-d');
         $hasta=date('Y-m-d');
-
         if(isset($data['desde'])){
         $desde=$data['desde'];
         $hasta=$data['hasta'];
         }
+
+            
+
+            $ingresos=DB::select("
+                SELECT * FROM ingresos i 
+                JOIN users u ON i.usu_id=u.usu_id
+                JOIN tipoingresos tpI ON i.tpI_id=tpI.tpI_id
+                WHERE i.ing_fecha BETWEEN '$desde' AND '$hasta'
+                ");
+
+            if (isset($data['btn_pdf'])) {
+            // dd('click document');
+
+            $data=['ingresos'=>$ingresos];
+            $pdf=PDF::loadview('ingresos.reporte',$data);
+            return $pdf->stream('reporte-del-ingreso.pdf');
+                        
+        }
         
-        $ingresos=DB::select("
-            SELECT * FROM ingresos i 
-            JOIN users u ON i.usu_id=u.usu_id
-            JOIN tipoingresos tpI ON i.tpI_id=tpI.tpI_id
-            WHERE i.ing_fecha BETWEEN '$desde' AND '$hasta'
-            ");
-        
-        return view('ingresos.index')
-        ->with('ingresos',$ingresos)
-        ->with('desde',$desde)
-        ->with('hasta',$hasta);
+            return view('ingresos.index')
+            ->with('ingresos',$ingresos)
+            ->with('desde',$desde)
+            ->with('hasta',$hasta);
     }
 
     /**
