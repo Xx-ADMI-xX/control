@@ -1,12 +1,12 @@
 
-<h2 align="center">Reporte de los ingresos</h2>
-<table class="table">
-		<th> # </th>
-		<th> Cantidad </th>
-		<th> Tipo </th>
-		<th> Fecha </th>
-		<th> Usuario </th>
-		<th> Detalle </th>
+<h2 align="center" style="color:red;">Reporte de los ingresos</h2>
+<table class="table table-bordered">
+		<th style="color:red;"> # </th>
+		<th style="color:red;"> Cantidad </th>
+		<th style="color:red;"> Tipo </th>
+		<th style="color:red;"> Fecha </th>
+		<th style="color:red;"> Usuario </th>
+		<th style="color:red;"> Detalle </th>
 		<?php
 			$t_ing=0; 
 		?>
@@ -28,7 +28,7 @@
 	</tr>
 	@endforeach
 	<tr>
-		<th colspan="2">Total:</th>
-		<th>Ingresos:{{$t_ing}}</th>
+		<th style="color:red;" colspan="2">Total:</th>
+		<th  >Ingresos:{{$t_ing}}</th>
 	</tr>
 </table> 

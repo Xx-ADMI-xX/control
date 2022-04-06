@@ -1,8 +1,17 @@
 @extends('layouts.app')
 @section('content')
 <h2 class="bg-dark text-white">Lista de los ingresos</h2>
-<a href="{{route('ingresos.create')}}" class="btn btn-primary"> Nuevo </a>
-<a class="btn btn-primary" href="{{route('tipoI')}}">Tipo (I)</a>
+<a href="{{route('ingresos.create')}}" class="btn btn-primary">
+	NUEVO
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+	  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+	</svg>
+</a>
+<a class="btn btn-primary" href="{{route('tipoI')}}">
+	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-view-list" viewBox="0 0 16 16">
+	  <path d="M3 4.5h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3zM1 2a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 2zm0 12a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 14z"/>
+	</svg>
+</a>
 <p></p>
 
 <form action="{{route('ingresos.search')}}" method="POST">
@@ -19,12 +28,11 @@
 		  <path d="M8.5 6.5a.5.5 0 0 0-1 0v3.793L6.354 9.146a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L8.5 10.293V6.5z"/>
 		  <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
 		</svg>
-		PDF
 	</button>
 </form>
 <p></p>
 	
-	<table class="table">
+	<table class="table table-bordered">
 		<th> # </th>
 		<th> Cantidad </th>
 		<th> Tipo </th>

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\User;
 use Illuminate\Http\Request;
+use App\User;
+use DB;
 
 class UsuariosController extends Controller
 {
@@ -17,6 +18,11 @@ class UsuariosController extends Controller
         return view('usuarios.index')
         ->with('users',$users)
         ;
+        $users=DB::select("
+                SELECT * FROM users u 
+                JOIN users u ON u.usu_id=u.usu_id
+                JOIN permisos prm ON u.prm_id=prm.prm_id
+                ");
     }
 
     /**
