@@ -5,8 +5,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">
-                    <div align="center">{{ __('¡ BIENVENIDO !') }}</div>
-                    <div>USUARIO: {{ Auth::user()->usu_Nombre }}</div>
+                    <div align="center" style="color:red"><b>{{ __('¡ BIENVENIDO !') }}</b></div>
+                    <div>USUARIO: {{ Auth::user()->usu_Nombre}}</div>
                 </div>
 
                 <div class="card-body" align="center">
